@@ -29,6 +29,15 @@ class Factory
       	@args[x.to_sym] = val
       end
 
+      define_method :inspect do
+        a = @args.collect {|x,y| "#{x}=" + y.inspect}.join(", ")
+        "#<struct #{a}>"
+      end
+
+      define_method :members do
+        method_names
+      end
+
       
 
     end
