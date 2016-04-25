@@ -2,7 +2,7 @@ class Factory
   
   def self.new(*method_names, &blok)
   	
-  	# raise an ArgumentError if not given at least one argument
+    # raise an ArgumentError if not given at least one argument
     raise ArgumentError, "wrong number of arguments (0 for 1+)" if method_names.empty?
     
     method_names.each do |x|
@@ -10,7 +10,7 @@ class Factory
     end
     
     Class.new do
-      # methods defined by the factory
+      
       include Enumerable
 
       define_method :initialize do |*args|
