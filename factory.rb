@@ -50,6 +50,10 @@ class Factory
         @args.values.each &blok
       end
 
+      def select(&blok)
+        values.select &blok
+      end
+
       method_names.each_with_index do |x, y|
         getter = x.to_sym
         setter = "#{x}=".to_sym
@@ -61,6 +65,12 @@ class Factory
           @args[getter] = value
         end
       end
+
+      alias :length :size
+      alias :to_s  :inspect
+      alias :to_a :values
+
+      class_eval &blok if blok
 
     end
 
