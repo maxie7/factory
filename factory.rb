@@ -46,7 +46,21 @@ class Factory
       	@args.values
       end
 
-      
+      def each(&blok)
+        @args.values.each &blok
+      end
+
+      method_names.each_with_index do |x, y|
+        getter = x.to_sym
+        setter = "#{x}=".to_sym
+
+        define_method getter do
+          @args[getter]
+        end
+        define_method setter do |value|
+          @args[getter] = value
+        end
+      end
 
     end
 
