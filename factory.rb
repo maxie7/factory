@@ -38,6 +38,14 @@ class Factory
         method_names
       end
 
+      define_method :size do
+      	@args.size
+      end
+
+      define_method :values do
+      	@args.values
+      end
+
       
 
     end
