@@ -1,5 +1,6 @@
 require './factory.rb'
 
+# from RubyGarage slide
 Customer = Factory.new(:name, :address) do
   def greeting
     "Hello #{name}!"
